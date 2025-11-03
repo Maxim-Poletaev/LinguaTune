@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/catalog.css">
+    <title>Упражнения - Rewrite The Stars</title>
+    <style>
+        .song-exercises {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .song-header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .song-header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .song-header .artist {
+            color: #7f8c8d;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .vocabulary-section {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .vocabulary-section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        
+        .vocabulary-words {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        
+        .vocabulary-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid rgba(255,255,255,0.3);
+        }
+        
+        .vocabulary-english {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .vocabulary-russian {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .exercises-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .exercise-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .exercise-card h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .exercise-content {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .question {
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .option:hover {
+            background: #e9ecef;
+        }
+        
+        .gap-exercise {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .gap-text {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .gap-input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            margin: 0 5px;
+            width: 120px;
+            font-size: 1rem;
+        }
+        
+        .gap-input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        .multi-gap-input {
+            width: 100px;
+        }
+        
+        .grammar-exercise {
+            margin: 20px 0;
+        }
+        
+        .grammar-question {
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .modal-exercise {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .conditional-exercise {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .sentence-complete {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .verb-input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            width: 150px;
+            font-size: 1rem;
+            margin: 0 5px;
+        }
+        
+        .verb-input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        .modal-input {
+            width: 120px;
+        }
+        
+        .check-button {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .check-button:hover {
+            background: #219a52;
+            transform: translateY(-2px);
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #95a5a6;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .back-button:hover {
+            background: #7f8c8d;
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: 500;
+            display: none;
+            line-height: 1.5;
+        }
+        
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .hint {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .lyrics-example {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-style: italic;
+            color: #856404;
+        }
+        
+        .grammar-hint {
+            background: #e8f4fd;
+            border: 1px solid #b6d7fe;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-size: 0.9rem;
+            color: #0c5460;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: #eee;
+            margin: 20px 0;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="nav-links">
+                <a href="../index.html">О нас</a>
+                <a href="../catalog.html">Каталог песен</a>
+            </div>
+            <div class="logo">
+                <h1>LinguaTune</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="song-exercises">
+            <a href="../catalog.html" class="back-button">← Назад к каталогу</a>
+            
+            <div class="song-header">
+                <h1>Rewrite The Stars</h1>
+                <div class="artist">Zac Efron, Zendaya</div>
+            </div>
+            
+            <!-- Словарь -->
+            <section class="vocabulary-section">
+                <h2>📚 Vocabulary - Словарь к песне</h2>
+                <div class="vocabulary-words">
+                    <div class="vocabulary-item">
+                        <div class="vocabulary-english">to rewrite</div>
+                        <div class="vocabulary-russian">переписать</div>
+                    </div>
+                    <div class="vocabulary-item">
+                        <div class="vocabulary-english">a fate</div>
+                        <div class="vocabulary-russian">судьба</div>
+                    </div>
+                    <div class="vocabulary-item">
+                        <div class="vocabulary-english">a destiny</div>
+                        <div class="vocabulary-russian">судьба</div>
+                    </div>
+                    <div class="vocabulary-item">
+                        <div class="vocabulary-english">to be bound</div>
+                        <div class="vocabulary-russian">быть связанным</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Упражнения -->
+            <div class="exercises-container">
+                <!-- Задание 1 -->
+                <div class="exercise-card">
+                    <h3>🎯 Задание 1</h3>
+                    <div class="exercise-content">
+                        <div class="question">What is this song about?</div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="task1" value="a">
+                                <label>About love that fights against destiny</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="task1" value="b">
+                                <label>About traveling to space</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="task1" value="c">
+                                <label>About friendship</label>
+                            </div>
+                        </div>
+                        <button class="check-button" onclick="checkTask1()">Проверить</button>
+                        <div id="result1" class="result"></div>
+                    </div>
+                </div>
+                
+                <!-- Задание 2 -->
+                <div class="exercise-card">
+                    <h3>📝 Задание 2</h3>
+                    <div class="exercise-content">
+                        <div class="question">Fill in the gaps</div>
+                        <div class="gap-exercise">
+                            <div class="gap-text">
+                                What if we rewrite the 
+                                <input type="text" class="gap-input" id="gap1" placeholder="слово">
+                                ?
+                            </div>
+                            <div class="gap-text">
+                                Say you were made to be 
+                                <input type="text" class="gap-input" id="gap2" placeholder="слово">
+                            </div>
+                            
+                            <hr class="section-divider">
+                            
+                            <div class="gap-text">
+                                You think it's easy, you think I don't 
+                                <input type="text" class="gap-input" id="gap3" placeholder="глагол">
+                            </div>
+                            <div class="gap-text">
+                                But there are mountains and doors we can't 
+                                <input type="text" class="gap-input" id="gap4" placeholder="глагол">
+                            </div>
+                        </div>
+                        <div class="hint">💡 Подсказка: Слова из контекста песни о любви и преодолении препятствий!</div>
+                        <div class="lyrics-example">
+                            🎵 Пример из песни: "What if we rewrite the stars?" и "Say you were made to be mine"
+                        </div>
+                        <button class="check-button" onclick="checkTask2()">Проверить</button>
+                        <div id="result2" class="result"></div>
+                    </div>
+                </div>
+                
+                <!-- Задание 3 -->
+                <div class="exercise-card">
+                    <h3>📖 Задание 3 - Grammar</h3>
+                    <div class="exercise-content">
+                        <div class="grammar-exercise">
+                            <div class="grammar-question">1. Complete with the correct modal verb:</div>
+                            <div class="modal-exercise">
+                                <div class="sentence-complete">
+                                    We 
+                                    <input type="text" class="verb-input modal-input" id="modal" placeholder="модальный глагол">
+                                    (can't) be together because the world keeps us apart.
+                                </div>
+                                <div class="grammar-hint">
+                                    💡 Модальные глаголы: can (может), can't (не может), could (мог), should (должен)<br>
+                                    Can't выражает невозможность
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grammar-exercise">
+                            <div class="grammar-question">2. Use the correct tense (Second Conditional):</div>
+                            <div class="conditional-exercise">
+                                <div class="sentence-complete">
+                                    If I 
+                                    <input type="text" class="verb-input" id="conditional" placeholder="глагол">
+                                    (be) free, I would rewrite the stars.
+                                </div>
+                                <div class="grammar-hint">
+                                    💡 Второй тип условных предложений: If + Past Simple, would + инфинитив<br>
+                                    Для глагола be в Past Simple используем were для всех лиц
+                                </div>
+                            </div>
+                        </div>
+                        <button class="check-button" onclick="checkTask3()">Проверить</button>
+                        <div id="result3" class="result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTask1() {
+            const selected = document.querySelector('input[name="task1"]:checked');
+            const result = document.getElementById('result1');
+            
+            if (!selected) {
+                result.textContent = "Пожалуйста, выберите ответ";
+                result.className = "result incorrect";
+                result.style.display = 'block';
+                return;
+            }
+            
+            if (selected.value === 'a') {
+                result.textContent = "✅ Правильно! Эта песня о любви, которая борется против судьбы и обстоятельств";
+                result.className = "result correct";
+            } else {
+                result.textContent = "❌ Неправильно. Песня рассказывает о романтической любви, преодолевающей препятствия судьбы";
+                result.className = "result incorrect";
+            }
+            result.style.display = 'block';
+        }
+        
+        function checkTask2() {
+            const gap1 = document.getElementById('gap1').value.toLowerCase().trim();
+            const gap2 = document.getElementById('gap2').value.toLowerCase().trim();
+            const gap3 = document.getElementById('gap3').value.toLowerCase().trim();
+            const gap4 = document.getElementById('gap4').value.toLowerCase().trim();
+            const result = document.getElementById('result2');
+            
+            if (!gap1 || !gap2 || !gap3 || !gap4) {
+                result.textContent = "Пожалуйста, заполните все пропуски";
+                result.className = "result incorrect";
+                result.style.display = 'block';
+                return;
+            }
+            
+            const correct1 = gap1 === 'stars';
+            const correct2 = gap2 === 'mine';
+            const correct3 = gap3 === 'want';
+            const correct4 = gap4 === 'climb';
+            
+            if (correct1 && correct2 && correct3 && correct4) {
+                result.innerHTML = "✅ Отлично! Все ответы правильные!<br>Правильные ответы: stars, mine, want, climb";
+                result.className = "result correct";
+            } else {
+                let message = "❌ Есть ошибки. Правильные ответы:<br>";
+                if (!correct1) message += "• 1-й пропуск: 'stars'<br>";
+                if (!correct2) message += "• 2-й пропуск: 'mine'<br>";
+                if (!correct3) message += "• 3-й пропуск: 'want'<br>";
+                if (!correct4) message += "• 4-й пропуск: 'climb'<br>";
+                result.innerHTML = message;
+                result.className = "result incorrect";
+            }
+            result.style.display = 'block';
+        }
+        
+        function checkTask3() {
+            const modal = document.getElementById('modal').value.toLowerCase().trim();
+            const conditional = document.getElementById('conditional').value.toLowerCase().trim();
+            const result = document.getElementById('result3');
+            
+            if (!modal || !conditional) {
+                result.textContent = "Пожалуйста, заполните все задания";
+                result.className = "result incorrect";
+                result.style.display = 'block';
+                return;
+            }
+            
+            const correctModal = modal === "can't" || modal === "cannot";
+            const correctConditional = conditional === 'were';
+            
+            if (correctModal && correctConditional) {
+                result.innerHTML = "✅ Прекрасно! Грамматика на высоте!<br>Правильные ответы: can't, were";
+                result.className = "result correct";
+            } else {
+                let message = "❌ Проверьте грамматику:<br>";
+                if (!correctModal) message += "• 1-е задание: 'can't' (выражает невозможность)<br>";
+                if (!correctConditional) message += "• 2-е задание: 'were' (второй тип условных предложений)<br>";
+                result.innerHTML = message;
+                result.className = "result incorrect";
+            }
+            result.style.display = 'block';
+        }
+        
+        // Добавляем обработчики для Enter в полях ввода
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input[type="text"]');
+            inputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const card = this.closest('.exercise-card');
+                        const checkButton = card.querySelector('.check-button');
+                        if (checkButton) {
+                            checkButton.click();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

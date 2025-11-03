@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/catalog.css">
+    <title>Каталог песен - LinguoTune</title>
+</head>
+<body>
+   <header>
+        <div class="container header-content">
+            <div class="nav-links">
+                <a href="index.html">О нас</a>
+                <a href="catalog.html">Каталог песен</a>
+            </div>
+            <div class="logo">
+                <h1>LinguaTune</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <h1 class="page-title">Подбор песни</h1>
+
+            <section class="filter-section">
+                <h2 class="filter-title">Фильтры поиска</h2>
+                
+                <div class="filter-group">
+                    <h3 class="filter-group-title">По уровню языка:</h3>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" id="level-beginner">
+                            <label for="level-beginner">Beginner</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="level-elementary">
+                            <label for="level-elementary">Elementary</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="level-intermediate">
+                            <label for="level-intermediate">Intermediate</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="level-upperintermediate">
+                            <label for="level-upintermediate">Upper Intermediate</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3 class="filter-group-title">По исполнителю:</h3>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" id="artist-abba">
+                            <label for="artist-abba">ABBA</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="artist-doubt">
+                            <label for="artist-doubt">No Doubt</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="artist-celine">
+                            <label for="artist-celine">Celine Dion</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="artist-ed">
+                            <label for="artist-ed">Ed Sheeran</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="artist-rihanna">
+                            <label for="artist-rihanna">Rihanna</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="artist-katy">
+                            <label for="artist-katy">Katy Perry</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="artist-im">
+                            <label for="artist-im">Imagine Dragons</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="artist-zac">
+                            <label for="artist-zac">Zac Efron</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="apply-button">Применить</button>
+            </section>
+            <section class="results-section">
+                <h2 class="results-title">Результаты</h2>
+                
+                <div class="song-card">
+                    <h3 class="song-title">Money, Money, Money</h3>
+                    <p class="song-artist">Исполнитель: ABBA</p>
+                    <button class="exercises-button">Перейти к упражнениям</button>
+                </div>
+                
+                <div class="song-card">
+                    <h3 class="song-title">Don’t Speak</h3>
+                    <p class="song-artist">Исполнитель: No Doubt</p>
+                    <button class="exercises-button">Перейти к упражнениям</button>
+                </div>
+                
+                <div class="song-card">
+                    <h3 class="song-title">My heart will go on</h3>
+                    <p class="song-artist">Исполнитель: Celine Dion</p>
+                    <button class="exercises-button">Перейти к упражнениям</button>
+                </div>
+                
+                <div class="song-card">
+                    <h3 class="song-title">Perfect</h3>
+                    <p class="song-artist">Исполнитель: Ed Sheeran</p>
+                    <button class="exercises-button">Перейти к упражнениям</button>
+                </div>
+                <div class="song-card">
+                    <h3 class="song-title">Diamonds</h3>
+                    <p class="song-artist">Исполнитель: Rihanna</p>
+                    <button class="exercises-button">Перейти к упражнениям</button>
+                </div>
+                <div class="song-card">
+                    <h3 class="song-title">Roar</h3>
+                    <p class="song-artist">Исполнитель: Katy Perry</p>
+                    <button class="exercises-button">Перейти к упражнениям</button>
+                </div>
+                <div class="song-card">
+                    <h3 class="song-title">Demons</h3>
+                    <p class="song-artist">Исполнитель: Imagine Dragons</p>
+                    <button class="exercises-button">Перейти к упражнениям</button>
+                </div>
+                <div class="song-card">
+                    <h3 class="song-title">Rewrite The Stars</h3>
+                    <p class="song-artist">Исполнитель: Zac Efron, Zendaya</p>
+                    <button class="exercises-button">Перейти к упражнениям</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+<script src="scripts/script.js"></script>
+</html>

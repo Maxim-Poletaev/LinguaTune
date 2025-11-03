@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/catalog.css">
+    <title>Упражнения - Perfect</title>
+    <style>
+        .song-exercises {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .song-header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .song-header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .song-header .artist {
+            color: #7f8c8d;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .vocabulary-section {
+            background: linear-gradient(135deg, #27ae60, #219a52);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .vocabulary-section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        
+        .vocabulary-words {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        
+        .vocabulary-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid rgba(255,255,255,0.3);
+        }
+        
+        .vocabulary-english {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .vocabulary-russian {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .exercises-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .exercise-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #27ae60;
+        }
+        
+        .exercise-card h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .exercise-content {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .question {
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .option:hover {
+            background: #e9ecef;
+        }
+        
+        .gap-exercise {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .gap-text {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .gap-input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            margin: 0 5px;
+            width: 120px;
+            font-size: 1rem;
+        }
+        
+        .gap-input:focus {
+            border-color: #27ae60;
+            outline: none;
+        }
+        
+        .multi-gap-input {
+            width: 100px;
+        }
+        
+        .grammar-exercise {
+            margin: 20px 0;
+        }
+        
+        .grammar-question {
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .past-simple-exercise {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .preposition-exercise {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .sentence-complete {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .verb-input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            width: 150px;
+            font-size: 1rem;
+            margin: 0 5px;
+        }
+        
+        .verb-input:focus {
+            border-color: #27ae60;
+            outline: none;
+        }
+        
+        .check-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .check-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #95a5a6;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .back-button:hover {
+            background: #7f8c8d;
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: 500;
+            display: none;
+            line-height: 1.5;
+        }
+        
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .hint {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .lyrics-example {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-style: italic;
+            color: #856404;
+        }
+        
+        .multi-word-gap {
+            display: inline-block;
+        }
+        
+        .multi-word-input {
+            width: 180px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="nav-links">
+                <a href="../index.html">О нас</a>
+                <a href="../catalog.html">Каталог песен</a>
+            </div>
+            <div class="logo">
+                <h1>LinguaTune</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="song-exercises">
+            <a href="../catalog.html" class="back-button">← Назад к каталогу</a>
+            
+            <div class="song-header">
+                <h1>Perfect</h1>
+                <div class="artist">Ed Sheeran</div>
+            </div>
+            
+            <!-- Словарь -->
+            <section class="vocabulary-section">
+                <h2>📚 Vocabulary - Словарь к песне</h2>
+                <div class="vocabulary-words">
+                    <div class="vocabulary-item">
+                        <div class="vocabulary-english">to find</div>
+                        <div class="vocabulary-russian">находить</div>
+                    </div>
+                    <div class="vocabulary-item">
+                        <div class="vocabulary-english">to fell in love</div>
+                        <div class="vocabulary-russian">влюбиться</div>
+                    </div>
+                    <div class="vocabulary-item">
+                        <div class="vocabulary-english">in the dark</div>
+                        <div class="vocabulary-russian">в темноте</div>
+                    </div>
+                    <div class="vocabulary-item">
+                        <div class="vocabulary-english">barefoot</div>
+                        <div class="vocabulary-russian">босиком</div>
+                    </div>
+                    <div class="vocabulary-item">
+                        <div class="vocabulary-english">to share somebody dreams</div>
+                        <div class="vocabulary-russian">разделять чьи-то мечты</div>
+                    </div>
+                    <div class="vocabulary-item">
+                        <div class="vocabulary-english">to fight against somebody</div>
+                        <div class="vocabulary-russian">бороться против кого-то</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Упражнения -->
+            <div class="exercises-container">
+                <!-- Задание 1 -->
+                <div class="exercise-card">
+                    <h3>🎯 Задание 1</h3>
+                    <div class="exercise-content">
+                        <div class="question">What is this song about?</div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="task1" value="a">
+                                <label>About love</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="task1" value="b">
+                                <label>About friendship</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="task1" value="c">
+                                <label>About a trip to the city</label>
+                            </div>
+                        </div>
+                        <button class="check-button" onclick="checkTask1()">Проверить</button>
+                        <div id="result1" class="result"></div>
+                    </div>
+                </div>
+                
+                <!-- Задание 2 -->
+                <div class="exercise-card">
+                    <h3>📝 Задание 2</h3>
+                    <div class="exercise-content">
+                        <div class="question">Fill in the gaps</div>
+                        <div class="gap-exercise">
+                            <div class="gap-text">
+                                I 
+                                <input type="text" class="gap-input" id="gap1" placeholder="глагол">
+                                a love for me
+                            </div>
+                            <div class="gap-text">
+                                'Cause we were just kids when we
+                                <span class="multi-word-gap">
+                                    <input type="text" class="gap-input multi-word-input" id="gap2" placeholder="три слова">
+                                </span>
+                            </div>
+                            <div class="gap-text">
+                                Baby, I'm dancing in the
+                                <input type="text" class="gap-input" id="gap3" placeholder="слово">
+                            </div>
+                            <div class="gap-text">
+                                With you between my
+                                <input type="text" class="gap-input" id="gap4" placeholder="слово">
+                            </div>
+                        </div>
+                        <div class="hint">💡 Подсказка: Все слова из словаря выше или связаны с ними!</div>
+                        <div class="lyrics-example">
+                            🎵 Пример из песни: "I found a love for me" и "Cause we were just kids when we fell in love"
+                        </div>
+                        <button class="check-button" onclick="checkTask2()">Проверить</button>
+                        <div id="result2" class="result"></div>
+                    </div>
+                </div>
+                
+                <!-- Задание 3 -->
+                <div class="exercise-card">
+                    <h3>📖 Задание 3 - Grammar</h3>
+                    <div class="exercise-content">
+                        <div class="grammar-exercise">
+                            <div class="grammar-question">1. Put the verb in Past Simple:</div>
+                            <div class="past-simple-exercise">
+                                <div class="sentence-complete">
+                                    I 
+                                    <input type="text" class="verb-input" id="pastSimple" placeholder="глагол в Past Simple">
+                                    (find) a love for me.
+                                </div>
+                                <div class="hint">💡 Неправильные глаголы имеют особые формы в Past Simple</div>
+                            </div>
+                        </div>
+                        
+                        <div class="grammar-exercise">
+                            <div class="grammar-question">2. Choose the correct preposition:</div>
+                            <div class="preposition-exercise">
+                                <div class="sentence-complete">Dancing ___ the dark.</div>
+                                <div class="options">
+                                    <div class="option">
+                                        <input type="radio" name="preposition" value="in">
+                                        <label>in</label>
+                                    </div>
+                                    <div class="option">
+                                        <input type="radio" name="preposition" value="on">
+                                        <label>on</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="check-button" onclick="checkTask3()">Проверить</button>
+                        <div id="result3" class="result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkTask1() {
+            const selected = document.querySelector('input[name="task1"]:checked');
+            const result = document.getElementById('result1');
+            
+            if (!selected) {
+                result.textContent = "Пожалуйста, выберите ответ";
+                result.className = "result incorrect";
+                result.style.display = 'block';
+                return;
+            }
+            
+            if (selected.value === 'a') {
+                result.textContent = "✅ Правильно! Эта песня о прекрасной и идеальной любви";
+                result.className = "result correct";
+            } else {
+                result.textContent = "❌ Неправильно. Песня рассказывает о романтической любви и отношениях";
+                result.className = "result incorrect";
+            }
+            result.style.display = 'block';
+        }
+        
+        function checkTask2() {
+            const gap1 = document.getElementById('gap1').value.toLowerCase().trim();
+            const gap2 = document.getElementById('gap2').value.toLowerCase().trim();
+            const gap3 = document.getElementById('gap3').value.toLowerCase().trim();
+            const gap4 = document.getElementById('gap4').value.toLowerCase().trim();
+            const result = document.getElementById('result2');
+            
+            if (!gap1 || !gap2 || !gap3 || !gap4) {
+                result.textContent = "Пожалуйста, заполните все пропуски";
+                result.className = "result incorrect";
+                result.style.display = 'block';
+                return;
+            }
+            
+            const correct1 = gap1 === 'found';
+            const correct2 = gap2 === 'fell in love';
+            const correct3 = gap3 === 'dark';
+            const correct4 = gap4 === 'arms';
+            
+            if (correct1 && correct2 && correct3 && correct4) {
+                result.innerHTML = "✅ Отлично! Все ответы правильные!<br>Правильные ответы: found, fell in love, dark, arms";
+                result.className = "result correct";
+            } else {
+                let message = "❌ Есть ошибки. Правильные ответы:<br>";
+                if (!correct1) message += "• 1-й пропуск: 'found' (Past Simple от find)<br>";
+                if (!correct2) message += "• 2-й пропуск: 'fell in love'<br>";
+                if (!correct3) message += "• 3-й пропуск: 'dark'<br>";
+                if (!correct4) message += "• 4-й пропуск: 'arms'<br>";
+                result.innerHTML = message;
+                result.className = "result incorrect";
+            }
+            result.style.display = 'block';
+        }
+        
+        function checkTask3() {
+            const pastSimple = document.getElementById('pastSimple').value.toLowerCase().trim();
+            const prepositionSelected = document.querySelector('input[name="preposition"]:checked');
+            const result = document.getElementById('result3');
+            
+            if (!pastSimple || !prepositionSelected) {
+                result.textContent = "Пожалуйста, заполните все задания";
+                result.className = "result incorrect";
+                result.style.display = 'block';
+                return;
+            }
+            
+            const correctPast = pastSimple === 'found';
+            const correctPreposition = prepositionSelected.value === 'in';
+            
+            if (correctPast && correctPreposition) {
+                result.innerHTML = "✅ Прекрасно! Грамматика на высоте!<br>Правильные ответы: found, in";
+                result.className = "result correct";
+            } else {
+                let message = "❌ Проверьте грамматику:<br>";
+                if (!correctPast) message += "• 1-е задание: 'found' (find → found)<br>";
+                if (!correctPreposition) message += "• 2-е задание: 'in' (in the dark)<br>";
+                result.innerHTML = message;
+                result.className = "result incorrect";
+            }
+            result.style.display = 'block';
+        }
+        
+        // Добавляем обработчики для Enter в полях ввода
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input[type="text"]');
+            inputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const card = this.closest('.exercise-card');
+                        const checkButton = card.querySelector('.check-button');
+                        if (checkButton) {
+                            checkButton.click();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
