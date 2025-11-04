@@ -169,13 +169,9 @@ function initializePage() {
     applyButton.addEventListener('click', applyFilters);
     
  
-    levelCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', applyFilters);
-    });
     
-    artistCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', applyFilters);
-    });
+    
+   
 }
 
 // Инициализация при загрузке страницы
