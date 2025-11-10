@@ -286,17 +286,158 @@
         .multi-word-input {
             width: 180px;
         }
+        /* Адаптация для планшетов */
+        @media (min-width: 768px) {
+            .song-exercises {
+                padding: 30px 20px;
+            }
+            
+            .vocabulary-words {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .gap-input {
+                width: 120px;
+            }
+            
+            .verb-input {
+                width: 180px;
+            }
+            
+            .passive-input {
+                width: 300px;
+            }
+            
+            .check-button {
+                width: auto;
+            }
+            
+            .back-button {
+                width: auto;
+            }
+            
+            .youtube-container {
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            .youtube-video iframe {
+                height: 200px;
+            }
+        }
+
+        /* Адаптация для десктопов */
+        @media (min-width: 1024px) {
+            .song-exercises {
+                padding: 40px 20px;
+            }
+            
+            .vocabulary-words {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .youtube-video iframe {
+                height: 315px;
+            }
+        }
+         @media (max-width: 560px) {
+            .vocabulary-item {
+                max-width: 400px;
+            }
+        }
+         @media (max-width: 460px) {
+            .vocabulary-item {
+                max-width: 300px;
+            }
+        }
+        @media (max-width: 400px) {
+            .vocabulary-item {
+                max-width: 250px;
+            }
+        }
+        /* Мелкие мобильные устройства */
+        @media (max-width: 360px) {
+            .song-header {
+                padding: 20px 15px;
+            }
+            .vocabulary-item {
+                max-width: 200px;
+            }
+            .song-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .exercise-card {
+                padding: 20px 15px;
+            }
+            
+            .exercise-content {
+                padding: 12px;
+            }
+            
+            .gap-input {
+                width: 90px;
+                font-size: 0.9rem;
+            }
+            
+            .verb-input {
+                width: 120px;
+                font-size: 0.9rem;
+            }
+            
+            .multi-word-input {
+                width: 100px;
+            }
+        }
+
+        /* Улучшение для очень маленьких экранов */
+        @media (max-width: 320px) {
+            .song-exercises {
+                padding: 15px 10px;
+            }
+            
+            .gap-input {
+                width: 80px;
+                padding: 5px 8px;
+            }
+            
+            .verb-input {
+                width: 110px;
+                padding: 5px 8px;
+            }
+            
+            .multi-word-input {
+                width: 90px;
+            }
+            .vocabulary-item {
+                max-width: 170px;
+            }
+        }
+
+        /* Улучшение отображения радиокнопок на мобильных */
+        .option input[type="radio"] {
+            transform: scale(1.1);
+            margin-top: 2px;
+        }
+
+        /* Улучшение для длинных текстов */
+        .option label {
+            word-wrap: break-word;
+            flex: 1;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-content">
-            <div class="nav-links">
-                <a href="../index.html">О нас</a>
-                <a href="../catalog.html">Каталог песен</a>
-            </div>
             <div class="logo">
-                <h1>LinguaTune</h1>
+                <a href="../index.html"><h1>LinguaTune</h1></a>
+                
+            </div>
+            <div class="nav-links">
+                <a href="../index.html#about">О нас</a>
+                <a href="../catalog.html">Каталог песен</a>
             </div>
         </div>
     </header>

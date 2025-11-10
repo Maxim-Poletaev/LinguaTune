@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,81 +12,81 @@
             margin: 0 auto;
             padding: 40px 20px;
         }
-        
+
         .song-header {
             text-align: center;
             margin-bottom: 40px;
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .song-header h1 {
             color: #2c3e50;
             font-size: 2.5rem;
             margin-bottom: 10px;
         }
-        
+
         .song-header .artist {
             color: #7f8c8d;
             font-size: 1.3rem;
             margin-bottom: 20px;
         }
-        
+
         .vocabulary-section {
             background: linear-gradient(135deg, #e74c3c, #c0392b);
             color: white;
             padding: 30px;
             border-radius: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .vocabulary-section h2 {
             text-align: center;
             margin-bottom: 25px;
             font-size: 1.8rem;
         }
-        
+
         .vocabulary-words {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
         }
-        
+
         .vocabulary-item {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             padding: 15px;
             border-radius: 8px;
-            border-left: 4px solid rgba(255,255,255,0.3);
+            border-left: 4px solid rgba(255, 255, 255, 0.3);
         }
-        
+
         .vocabulary-english {
             font-weight: bold;
             font-size: 1.1rem;
             margin-bottom: 5px;
         }
-        
+
         .vocabulary-russian {
             font-size: 1rem;
             opacity: 0.9;
         }
-        
+
         .exercises-container {
             display: flex;
             flex-direction: column;
             gap: 25px;
         }
-        
+
         .exercise-card {
             background: white;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
             border-left: 5px solid #e74c3c;
         }
-        
+
         .exercise-card h3 {
             color: #2c3e50;
             margin-bottom: 20px;
@@ -94,27 +95,27 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .exercise-content {
             background: #f8f9fa;
             padding: 20px;
             border-radius: 8px;
             margin: 15px 0;
         }
-        
+
         .question {
             margin-bottom: 15px;
             font-weight: 500;
             font-size: 1.1rem;
         }
-        
+
         .options {
             display: flex;
             flex-direction: column;
             gap: 10px;
             margin: 15px 0;
         }
-        
+
         .option {
             display: flex;
             align-items: center;
@@ -125,24 +126,24 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+
         .option:hover {
             background: #e9ecef;
         }
-        
+
         .gap-exercise {
             background: white;
             padding: 15px;
             border-radius: 8px;
             margin: 10px 0;
         }
-        
+
         .gap-text {
             line-height: 1.6;
             margin-bottom: 15px;
             font-size: 1.1rem;
         }
-        
+
         .gap-input {
             padding: 8px 12px;
             border: 2px solid #ddd;
@@ -151,41 +152,41 @@
             width: 120px;
             font-size: 1rem;
         }
-        
+
         .gap-input:focus {
             border-color: #e74c3c;
             outline: none;
         }
-        
+
         .grammar-exercise {
             margin: 20px 0;
         }
-        
+
         .grammar-question {
             margin-bottom: 15px;
             font-weight: 500;
             font-size: 1.1rem;
         }
-        
+
         .future-exercise {
             background: white;
             padding: 15px;
             border-radius: 8px;
             margin: 10px 0;
         }
-        
+
         .present-exercise {
             background: white;
             padding: 15px;
             border-radius: 8px;
             margin: 10px 0;
         }
-        
+
         .sentence-complete {
             font-size: 1.1rem;
             margin-bottom: 10px;
         }
-        
+
         .verb-input {
             padding: 8px 12px;
             border: 2px solid #ddd;
@@ -194,12 +195,12 @@
             font-size: 1rem;
             margin: 0 5px;
         }
-        
+
         .verb-input:focus {
             border-color: #e74c3c;
             outline: none;
         }
-        
+
         .check-button {
             background: #27ae60;
             color: white;
@@ -212,12 +213,12 @@
             margin-top: 10px;
             font-weight: 500;
         }
-        
+
         .check-button:hover {
             background: #219a52;
             transform: translateY(-2px);
         }
-        
+
         .back-button {
             display: inline-block;
             background: #95a5a6;
@@ -229,14 +230,14 @@
             transition: all 0.3s;
             font-weight: 500;
         }
-        
+
         .back-button:hover {
             background: #7f8c8d;
             transform: translateY(-2px);
             color: white;
             text-decoration: none;
         }
-        
+
         .result {
             margin-top: 15px;
             padding: 15px;
@@ -245,26 +246,26 @@
             display: none;
             line-height: 1.5;
         }
-        
+
         .correct {
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
-        
+
         .incorrect {
             background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
-        
+
         .hint {
             font-size: 0.9rem;
             color: #666;
             margin-top: 5px;
             font-style: italic;
         }
-        
+
         .lyrics-example {
             background: #fff3cd;
             border: 1px solid #ffeaa7;
@@ -274,17 +275,278 @@
             font-style: italic;
             color: #856404;
         }
+
+        /* Адаптация для планшетов */
+        @media (min-width: 768px) {
+            .song-exercises {
+                padding: 30px 20px;
+            }
+
+            .vocabulary-words {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .gap-input {
+                width: 120px;
+            }
+
+            .verb-input {
+                width: 180px;
+            }
+
+            .passive-input {
+                width: 300px;
+            }
+
+            .check-button {
+                width: auto;
+            }
+
+            .back-button {
+                width: auto;
+            }
+
+            .youtube-container {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .youtube-video iframe {
+                height: 200px;
+            }
+        }
+
+        /* Адаптация для десктопов */
+        @media (min-width: 1024px) {
+            .song-exercises {
+                padding: 40px 20px;
+            }
+
+            .vocabulary-words {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .youtube-video iframe {
+                height: 315px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .vocabulary-item {
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .vocabulary-item {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .vocabulary-item {
+                max-width: 250px;
+            }
+        }
+
+        /* Мелкие мобильные устройства */
+        @media (max-width: 360px) {
+            .song-header {
+                padding: 20px 15px;
+            }
+
+            .vocabulary-item {
+                max-width: 200px;
+            }
+
+            .song-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .exercise-card {
+                padding: 20px 15px;
+            }
+
+            .exercise-content {
+                padding: 12px;
+            }
+
+            .gap-input {
+                width: 90px;
+                font-size: 0.9rem;
+            }
+
+            .verb-input {
+                width: 120px;
+                font-size: 0.9rem;
+            }
+
+            .multi-word-input {
+                width: 100px;
+            }
+        }
+
+        /* Улучшение для очень маленьких экранов */
+        @media (max-width: 320px) {
+            .song-exercises {
+                padding: 15px 10px;
+            }
+
+            .gap-input {
+                width: 80px;
+                padding: 5px 8px;
+            }
+
+            .verb-input {
+                width: 110px;
+                padding: 5px 8px;
+            }
+
+            .multi-word-input {
+                width: 90px;
+            }
+
+            .vocabulary-item {
+                max-width: 170px;
+            }
+        }
+
+        /* Улучшение отображения радиокнопок на мобильных */
+        .option input[type="radio"] {
+            transform: scale(1.1);
+            margin-top: 2px;
+        }
+
+        /* Улучшение для длинных текстов */
+        .option label {
+            word-wrap: break-word;
+            flex: 1;
+        }
+
+        .song-excerpt {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #f8f9fa;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .excerpt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #e9ecef;
+        }
+
+        .excerpt-number {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1rem;
+        }
+
+        .excerpt-hint {
+            font-size: 0.85rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .excerpt-divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .excerpt-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e74c3c, transparent);
+            z-index: 1;
+        }
+
+        .music-note {
+            background: white;
+            padding: 0 15px;
+            position: relative;
+            z-index: 2;
+            font-size: 1.2rem;
+        }
+
+        .gap-text {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Адаптация для мобильных */
+        @media (max-width: 768px) {
+            .song-excerpt {
+                padding: 15px;
+                margin: 10px 0;
+            }
+
+            .excerpt-header {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+
+            .excerpt-number {
+                font-size: 0.95rem;
+            }
+
+            .excerpt-hint {
+                font-size: 0.8rem;
+            }
+
+            .gap-text {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .excerpt-divider::before {
+                left: 5%;
+                right: 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .song-excerpt {
+                padding: 12px;
+            }
+
+            .gap-text {
+                font-size: 0.95rem;
+            }
+
+            .music-note {
+                padding: 0 10px;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container header-content">
-            <div class="nav-links">
-                <a href="../index.html">О нас</a>
-                <a href="../catalog.html">Каталог песен</a>
-            </div>
             <div class="logo">
-                <h1>LinguaTune</h1>
+                <a href="../index.html">
+                    <h1>LinguaTune</h1>
+                </a>
+
+            </div>
+            <div class="nav-links">
+                <a href="../index.html#about">О нас</a>
+                <a href="../catalog.html">Каталог песен</a>
             </div>
         </div>
     </header>
@@ -292,12 +554,12 @@
     <div class="container">
         <div class="song-exercises">
             <a href="../catalog.html" class="back-button">← Назад к каталогу</a>
-            
+
             <div class="song-header">
                 <h1>My Heart Will Go On</h1>
                 <div class="artist">Celine Dion</div>
             </div>
-            
+
             <!-- Словарь -->
             <section class="vocabulary-section">
                 <h2>📚 Vocabulary - Словарь к песне</h2>
@@ -332,7 +594,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Упражнения -->
             <div class="exercises-container">
                 <!-- Задание 1 -->
@@ -358,25 +620,48 @@
                         <div id="result1" class="result"></div>
                     </div>
                 </div>
-                
+
                 <!-- Задание 2 -->
                 <div class="exercise-card">
                     <h3>📝 Задание 2</h3>
                     <div class="exercise-content">
-                        <div class="question">Fill in the gaps</div>
+                        <div class="question">Fill in the gaps in these song excerpts</div>
                         <div class="gap-exercise">
-                            <div class="gap-text">
-                                Every night in my 
-                                <input type="text" class="gap-input" id="gap1" placeholder="слово">
+                            <!-- Первый отрывок -->
+                            <div class="song-excerpt">
+                                <div class="excerpt-header">
+                                    <span class="excerpt-number">Отрывок 1</span>
+                                    <span class="excerpt-hint">Из начала песни</span>
+                                </div>
+                                <div class="gap-text">
+                                    Every night in my
+                                    <input type="text" class="gap-input" id="gap1" placeholder="слово">
+                                    I see you, I feel you
+                                </div>
                             </div>
-                            <div class="gap-text">
-                                <input type="text" class="gap-input" id="gap2" placeholder="слово 1">,
-                                <input type="text" class="gap-input" id="gap3" placeholder="слово 2">, wherever you are
+
+                            <!-- Разделитель -->
+                            <div class="excerpt-divider">
+                                <div class="music-note">🎵</div>
                             </div>
-                            <div class="gap-text">
-                                I believe that the 
-                                <input type="text" class="gap-input" id="gap4" placeholder="слово 3"> does 
-                                <input type="text" class="gap-input" id="gap5" placeholder="слово 4">
+
+                            <!-- Второй отрывок -->
+                            <div class="song-excerpt">
+                                <div class="excerpt-header">
+                                    <span class="excerpt-number">Отрывок 2</span>
+                                    <span class="excerpt-hint">Основной припев</span>
+                                </div>
+                                <div class="gap-text">
+                                    <input type="text" class="gap-input" id="gap2" placeholder="слово 1">,
+                                    <input type="text" class="gap-input" id="gap3" placeholder="слово 2">,
+                                    wherever you are
+                                </div>
+                                <div class="gap-text">
+                                    I believe that the
+                                    <input type="text" class="gap-input" id="gap4" placeholder="слово 3">
+                                    does
+                                    <input type="text" class="gap-input" id="gap5" placeholder="слово 4">
+                                </div>
                             </div>
                         </div>
                         <div class="hint">💡 Подсказка: Все слова из словаря выше!</div>
@@ -387,7 +672,7 @@
                         <div id="result2" class="result"></div>
                     </div>
                 </div>
-                
+
                 <!-- Задание 3 -->
                 <div class="exercise-card">
                     <h3>📖 Задание 3 - Grammar</h3>
@@ -408,14 +693,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="grammar-exercise">
                             <div class="grammar-question">2. Complete the sentence (Present Simple):</div>
                             <div class="present-exercise">
                                 <div class="sentence-complete">
-                                    Love 
+                                    Love
                                     <input type="text" class="verb-input" id="presentSimple" placeholder="глагол">
-                                    forever.
+                                    (to last) forever.
                                 </div>
                                 <div class="hint">💡 В Present Simple для he/she/it добавляется -s</div>
                             </div>
@@ -432,14 +717,14 @@
         function checkTask1() {
             const selected = document.querySelector('input[name="task1"]:checked');
             const result = document.getElementById('result1');
-            
+
             if (!selected) {
                 result.textContent = "Пожалуйста, выберите ответ";
                 result.className = "result incorrect";
                 result.style.display = 'block';
                 return;
             }
-            
+
             if (selected.value === 'a') {
                 result.textContent = "✅ Правильно! Эта песня о вечной любви и памяти о потерянном любимом человеке";
                 result.className = "result correct";
@@ -449,7 +734,7 @@
             }
             result.style.display = 'block';
         }
-        
+
         function checkTask2() {
             const gap1 = document.getElementById('gap1').value.toLowerCase().trim();
             const gap2 = document.getElementById('gap2').value.toLowerCase().trim();
@@ -457,20 +742,20 @@
             const gap4 = document.getElementById('gap4').value.toLowerCase().trim();
             const gap5 = document.getElementById('gap5').value.toLowerCase().trim();
             const result = document.getElementById('result2');
-            
+
             if (!gap1 || !gap2 || !gap3 || !gap4 || !gap5) {
                 result.textContent = "Пожалуйста, заполните все пропуски";
                 result.className = "result incorrect";
                 result.style.display = 'block';
                 return;
             }
-            
+
             const correct1 = gap1 === 'dreams';
             const correct2 = gap2 === 'near';
             const correct3 = gap3 === 'far';
             const correct4 = gap4 === 'heart';
             const correct5 = gap5 === 'go on';
-            
+
             if (correct1 && correct2 && correct3 && correct4 && correct5) {
                 result.innerHTML = "✅ Отлично! Все ответы правильные!<br>Правильные ответы: dreams, near, far, heart, go on";
                 result.className = "result correct";
@@ -486,22 +771,22 @@
             }
             result.style.display = 'block';
         }
-        
+
         function checkTask3() {
             const futureSelected = document.querySelector('input[name="future"]:checked');
             const presentSimple = document.getElementById('presentSimple').value.toLowerCase().trim();
             const result = document.getElementById('result3');
-            
+
             if (!futureSelected || !presentSimple) {
                 result.textContent = "Пожалуйста, заполните все задания";
                 result.className = "result incorrect";
                 result.style.display = 'block';
                 return;
             }
-            
+
             const correctFuture = futureSelected.value === 'will';
             const correctPresent = presentSimple === 'lasts';
-            
+
             if (correctFuture && correctPresent) {
                 result.innerHTML = "✅ Прекрасно! Грамматика на высоте!<br>Правильные ответы: will, lasts";
                 result.className = "result correct";
@@ -514,12 +799,12 @@
             }
             result.style.display = 'block';
         }
-        
+
         // Добавляем обработчики для Enter в полях ввода
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const inputs = document.querySelectorAll('input[type="text"]');
             inputs.forEach(input => {
-                input.addEventListener('keypress', function(e) {
+                input.addEventListener('keypress', function (e) {
                     if (e.key === 'Enter') {
                         const card = this.closest('.exercise-card');
                         const checkButton = card.querySelector('.check-button');
@@ -532,4 +817,5 @@
         });
     </script>
 </body>
+
 </html>

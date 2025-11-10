@@ -1,4 +1,3 @@
-
 // Данные песен
 const songs = [
     { 
@@ -51,21 +50,37 @@ const songs = [
     }
 ];
 
-
-
 // Элементы DOM
 const levelCheckboxes = document.querySelectorAll('input[type="checkbox"][id^="level-"]');
 const artistCheckboxes = document.querySelectorAll('input[type="checkbox"][id^="artist-"]');
 const applyButton = document.querySelector('.apply-button');
 const resultsSection = document.querySelector('.results-section');
-const songCardsContainer = resultsSection.querySelector('.song-cards') || resultsSection;
+
+// Создаем карту соответствия ID чекбоксов и реальных имен исполнителей
+const artistIdToNameMap = {
+    'abba': 'ABBA',
+    'doubt': 'No Doubt',
+    'celine': 'Celine Dion',
+    'ed': 'Ed Sheeran',
+    'rihanna': 'Rihanna',
+    'katy': 'Katy Perry',
+    'im': 'Imagine Dragons',
+    'zac': 'Zac Efron, Zendaya'
+};
+
+// Карта соответствия ID уровней и их названий
+const levelIdToNameMap = {
+    'beginner': 'Beginner',
+    'elementary': 'Elementary',
+    'intermediate': 'Intermediate',
+    'upperintermediate': 'Upper Intermediate'
+};
 
 // Функция для получения выбранных уровней
 function getSelectedLevels() {
     const selectedLevels = [];
     levelCheckboxes.forEach(checkbox => {
         if (checkbox.checked) {
-            // Получаем уровень из id чекбокса (убираем префикс "level-")
             const level = checkbox.id.replace('level-', '');
             selectedLevels.push(level);
         }
@@ -78,52 +93,141 @@ function getSelectedArtists() {
     const selectedArtists = [];
     artistCheckboxes.forEach(checkbox => {
         if (checkbox.checked) {
-            // Получаем имя исполнителя из id чекбокса (убираем префикс "artist-")
-            const artist = checkbox.id.replace('artist-', '');
-            // Заменяем дефисы на пробелы и делаем первую букву заглавной
-            const formattedArtist = artist.split('-')
-                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(' ');
-            selectedArtists.push(formattedArtist);
+            const artistId = checkbox.id.replace('artist-', '');
+            const artistName = artistIdToNameMap[artistId];
+            if (artistName) {
+                selectedArtists.push(artistName);
+            }
         }
     });
     return selectedArtists;
 }
 
+// Функция для получения всех исполнителей по выбранным уровням
+function getArtistsByLevels(selectedLevels) {
+    const artists = new Set();
+    
+    if (selectedLevels.length === 0) {
+        // Если уровни не выбраны, показываем всех исполнителей
+        songs.forEach(song => {
+            artists.add(song.artist);
+        });
+    } else {
+        // Если уровни выбраны, показываем только исполнителей с песнями этих уровней
+        songs.forEach(song => {
+            if (selectedLevels.includes(song.level)) {
+                artists.add(song.artist);
+            }
+        });
+    }
+    
+    return Array.from(artists);
+}
+
+// Функция для получения всех уровней по выбранным исполнителям
+function getLevelsByArtists(selectedArtists) {
+    const levels = new Set();
+    
+    if (selectedArtists.length === 0) {
+        // Если исполнители не выбраны, показываем все уровни
+        songs.forEach(song => {
+            levels.add(song.level);
+        });
+    } else {
+        // Если исполнители выбраны, показываем только уровни с песнями этих исполнителей
+        songs.forEach(song => {
+            if (selectedArtists.includes(song.artist)) {
+                levels.add(song.level);
+            }
+        });
+    }
+    
+    return Array.from(levels);
+}
+
+// Функция для обновления видимости чекбоксов исполнителей
+function updateArtistVisibility(selectedLevels) {
+    const availableArtists = getArtistsByLevels(selectedLevels);
+    
+    artistCheckboxes.forEach(checkbox => {
+        const artistId = checkbox.id.replace('artist-', '');
+        const artistName = artistIdToNameMap[artistId];
+        
+        if (!artistName) return;
+        
+        // Проверяем, есть ли исполнитель в списке доступных
+        const isAvailable = availableArtists.includes(artistName);
+        
+        // Находим родительский элемент для управления видимостью
+        const filterOption = checkbox.closest('.filter-option');
+        
+        if (filterOption) {
+            if (isAvailable) {
+                // Показываем исполнителя
+                filterOption.style.display = 'block';
+                filterOption.style.opacity = '1';
+            } else {
+                // Скрываем исполнителя и снимаем выделение если было
+                filterOption.style.display = 'none';
+                checkbox.checked = false;
+            }
+        }
+    });
+}
+
+// Функция для обновления видимости чекбоксов уровней
+function updateLevelVisibility(selectedArtists) {
+    const availableLevels = getLevelsByArtists(selectedArtists);
+    
+    levelCheckboxes.forEach(checkbox => {
+        const levelId = checkbox.id.replace('level-', '');
+        
+        // Проверяем, есть ли уровень в списке доступных
+        const isAvailable = availableLevels.includes(levelId);
+        
+        // Находим родительский элемент для управления видимостью
+        const filterOption = checkbox.closest('.filter-option');
+        
+        if (filterOption) {
+            if (isAvailable) {
+                // Показываем уровень
+                filterOption.style.display = 'block';
+                filterOption.style.opacity = '1';
+            } else {
+                // Скрываем уровень и снимаем выделение если было
+                filterOption.style.display = 'none';
+                checkbox.checked = false;
+            }
+        }
+    });
+}
+
 // Функция для проверки соответствия песни фильтрам
 function songMatchesFilters(song, selectedLevels, selectedArtists) {
-    // Если не выбраны ни уровни, ни исполнители - показываем все песни
     if (selectedLevels.length === 0 && selectedArtists.length === 0) {
         return true;
     }
     
-    // Проверяем уровень
     const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(song.level);
-    
-    // Проверяем исполнителя (приводим к нижнему регистру для сравнения)
     const artistMatch = selectedArtists.length === 0 || 
-        selectedArtists.some(artist => 
-            song.artist.toLowerCase().includes(artist.toLowerCase())
-        );
+        selectedArtists.some(artist => song.artist === artist);
     
     return levelMatch && artistMatch;
 }
 
-
 function displaySongs(songsToShow) {
-    let songCardsContainer = resultsSection.querySelector('.song-cards');
-    if (!songCardsContainer) {
-        songCardsContainer = document.createElement('div');
-        songCardsContainer.className = 'song-cards';
-        const oldCards = resultsSection.querySelectorAll('.song-card');
-        oldCards.forEach(card => card.remove());
-        resultsSection.appendChild(songCardsContainer);
-    } else {
-        songCardsContainer.innerHTML = '';
+    // Удаляем существующие карточки песен
+    const existingCards = resultsSection.querySelectorAll('.song-card');
+    existingCards.forEach(card => card.remove());
+    
+    // Удаляем сообщение "нет результатов", если оно есть
+    const noResults = resultsSection.querySelector('.no-results');
+    if (noResults) {
+        noResults.remove();
     }
     
     if (songsToShow.length === 0) {
-        songCardsContainer.innerHTML = '<p class="no-results">По вашему запросу ничего не найдено</p>';
+        resultsSection.innerHTML += '<p class="no-results">По вашему запросу ничего не найдено</p>';
         return;
     }
     
@@ -135,7 +239,7 @@ function displaySongs(songsToShow) {
             <p class="song-artist">Исполнитель: ${song.artist}</p>
             <a href="${song.page}" class="exercises-button">Перейти к упражнениям</a>
         `;
-        songCardsContainer.appendChild(songCard);
+        resultsSection.appendChild(songCard);
     });
 }
 
@@ -150,34 +254,47 @@ function applyFilters() {
     displaySongs(filteredSongs);
 }
 
-function addExerciseButtonListeners() {
-    document.querySelectorAll('.exercises-button').forEach(button => {
-        button.addEventListener('click', function() {
-            const songTitle = this.parentElement.querySelector('.song-title').textContent;
-            const songArtist = this.parentElement.querySelector('.song-artist').textContent;
-
-        });
-    });
+// Функция для обновления всех фильтров
+function updateAllFilters() {
+    const selectedLevels = getSelectedLevels();
+    const selectedArtists = getSelectedArtists();
+    
+    updateArtistVisibility(selectedLevels);
+    updateLevelVisibility(selectedArtists);
 }
 
-
 function initializePage() {
+    // Удаляем статические карточки песен из HTML и заменяем их на динамические
+    const staticCards = resultsSection.querySelectorAll('.song-card');
+    staticCards.forEach(card => card.remove());
+    
+    // Добавляем обработчики событий для чекбоксов уровней
+    levelCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            updateAllFilters();
+        });
+    });
 
+    // Добавляем обработчики событий для чекбоксов исполнителей
+    artistCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            updateAllFilters();
+        });
+    });
+
+    // Инициализируем видимость при загрузке
+    updateAllFilters();
+    
+    // Показываем все песни при загрузке
     displaySongs(songs);
     
-
     applyButton.addEventListener('click', applyFilters);
-    
- 
-    
-    
-   
 }
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', initializePage);
 
-// Добавляем CSS для сообщения "нет результатов"
+// Добавляем CSS для сообщения "нет результатов" и скрытых элементов
 const style = document.createElement('style');
 style.textContent = `
     .no-results {
@@ -194,6 +311,27 @@ style.textContent = `
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+    
+    .filter-option {
+        transition: opacity 0.3s ease;
+    }
+    
+    .exercises-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    
+    .exercises-button:hover {
+        background-color: #0056b3;
     }
 `;
 document.head.appendChild(style);

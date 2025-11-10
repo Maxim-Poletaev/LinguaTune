@@ -4,7 +4,10 @@
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
-
+a {
+    text-decoration: none;
+    color: inherit;
+}
 body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #333;
@@ -32,7 +35,6 @@ header {
 }
 
 .logo {
-    text-align: center;
     flex-grow: 1;
 }
 
@@ -75,6 +77,7 @@ header {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    margin-top: 50px;
 }
 
 .hero-block h1 {
@@ -207,7 +210,23 @@ header {
     color: #666;
     margin: 0;
 }
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
 
+    .nav-links {
+        gap: 20px;
+    }
+
+    .filter-options {
+        flex-direction: column;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }}
 @media (max-width: 968px) {
     .about-section {
         flex-direction: column;
@@ -239,12 +258,10 @@ header {
         font-size: 1.1rem;
     }
 
-    .music-icon {
-        font-size: 6rem;
-    }
+    
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .hero-block {
         padding: 40px 25px;
     }
@@ -255,6 +272,9 @@ header {
 
     .hero-block p {
         font-size: 1.1rem;
+    }
+    .about-image {
+        display: none;
     }
 }
 

@@ -11,6 +11,11 @@ body {
     color: #333;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -31,7 +36,6 @@ header {
 }
 
 .logo {
-    text-align: center;
     flex-grow: 1;
 }
 
