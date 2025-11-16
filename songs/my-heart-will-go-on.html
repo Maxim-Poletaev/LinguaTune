@@ -316,7 +316,133 @@
                 height: 200px;
             }
         }
+        
+        .video-container {
+            background: white;
+            border-radius: 20px;
+            padding: 0;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
+        .video-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-header {
+            background: linear-gradient(135deg, #5291da, #0055CC);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+
+        .video-header h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .video-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .video-player {
+            position: relative;
+            padding: 20px;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-player iframe {
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 3px solid white;
+        }
+
+        .video-footer {
+            background: #f8f9fa;
+            padding: 15px 30px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .video-source {
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 968px) {
+            .video-header {
+                padding: 20px 25px;
+            }
+
+            .video-header h3 {
+                font-size: 1.3rem;
+            }
+
+            .video-player {
+                padding: 15px;
+            }
+
+            .video-player iframe {
+                width: 100%;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-container {
+                border-radius: 15px;
+                margin-bottom: 30px;
+            }
+
+            .video-header {
+                padding: 18px 20px;
+            }
+
+            .video-header h3 {
+                font-size: 1.2rem;
+            }
+
+            .video-header p {
+                font-size: 0.9rem;
+            }
+
+            .video-player {
+                padding: 10px;
+            }
+
+            .video-player iframe {
+                height: 300px;
+                border-width: 2px;
+            }
+
+            .video-footer {
+                padding: 12px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-player iframe {
+                height: 250px;
+            }
+
+            .video-header h3 {
+                font-size: 1.1rem;
+            }
+
+            .video-header p {
+                font-size: 0.85rem;
+            }
+        }
         /* Адаптация для десктопов */
         @media (min-width: 1024px) {
             .song-exercises {
@@ -559,7 +685,25 @@
                 <h1>My Heart Will Go On</h1>
                 <div class="artist">Celine Dion</div>
             </div>
-
+            <!-- VK видео -->
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <div class="video-header">
+                        <h3>🎵 Слушайте песню</h3>
+                        <p>Прослушайте песню перед выполнением упражнений</p>
+                    </div>
+                    <div class="video-player">
+                        <iframe src="https://vkvideo.ru/video_ext.php?oid=297425198&id=456239048&hash=92a4dd552539eb3b" width="853"
+                            height="480" style="background-color: #000"
+                            allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                            frameborder="0" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-footer">
+                        <span class="video-source">Видео предоставлено VK Видео</span>
+                    </div>
+                </div>
+            </div>
             <!-- Словарь -->
             <section class="vocabulary-section">
                 <h2>📚 Vocabulary - Словарь к песне</h2>

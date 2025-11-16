@@ -44,7 +44,7 @@ const songs = [
     },
     { 
         title: "Rewrite The Stars", 
-        artist: "Zac Efron, Zendaya", 
+        artist: "Anne-Marie & James Arthur", 
         level: "upperintermediate",
         page: "songs/rewrite-the-stars.html"
     }
@@ -65,7 +65,7 @@ const artistIdToNameMap = {
     'rihanna': 'Rihanna',
     'katy': 'Katy Perry',
     'im': 'Imagine Dragons',
-    'zac': 'Zac Efron, Zendaya'
+    'anne': 'Anne-Marie & James Arthur'
 };
 
 // Карта соответствия ID уровней и их названий
