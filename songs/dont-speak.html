@@ -124,10 +124,26 @@
             border-radius: 6px;
             cursor: pointer;
             transition: background-color 0.3s;
+            border: 1px solid #ddd;
         }
 
         .option:hover {
             background: #e9ecef;
+        }
+
+        /* Скрываем стандартный чекбокс */
+        .option input[type="radio"] {
+            margin: 0;
+        }
+
+        /* Стиль для выбранного состояния */
+        .option input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        /* Дополнительный стиль для всей кнопки при выборе */
+        .option input[type="radio"]:checked ~ span {
+            font-weight: bold;
         }
 
         .gap-exercise {
@@ -633,18 +649,18 @@
                     <div class="exercise-content">
                         <div class="question">What is this song about?</div>
                         <div class="options">
-                            <div class="option">
+                            <label class="option">
                                 <input type="radio" name="task1" value="a">
-                                <label>About a happy friendship</label>
-                            </div>
-                            <div class="option">
+                                <span>About a happy friendship</span>
+                            </label>
+                            <label class="option">
                                 <input type="radio" name="task1" value="b">
-                                <label>About saying goodbye to someone you love</label>
-                            </div>
-                            <div class="option">
+                                <span>About saying goodbye to someone you love</span>
+                            </label>
+                            <label class="option">
                                 <input type="radio" name="task1" value="c">
-                                <label>About going on a trip</label>
-                            </div>
+                                <span>About going on a trip</span>
+                            </label>
                         </div>
                         <button class="check-button" onclick="checkTask1()">Проверить</button>
                         <div id="result1" class="result"></div>
@@ -771,9 +787,11 @@
                 return;
             }
 
-            const correct1 = grammar1 === "doesn't" || grammar1 === "doesnt";
+            const correct1 = grammar1 === "doesn't" || grammar1 === "doesnt" || grammar1 === "does not";
             const correct2 = grammar2 === "i don't love this situation" ||
-                grammar2 === "i dont love this situation";
+                grammar2 === "i dont love this situation" ||
+                grammar2 === "i do not love this situation"||
+                grammar2 === "i hate this situation";
 
             if (correct1 && correct2) {
                 result.innerHTML = "✅ Прекрасно! Грамматика на высоте!<br>Правильные ответы: doesn't, I don't love this situation";

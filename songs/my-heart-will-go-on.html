@@ -125,10 +125,26 @@
             border-radius: 6px;
             cursor: pointer;
             transition: background-color 0.3s;
+            border: 1px solid #ddd;
         }
 
         .option:hover {
             background: #e9ecef;
+        }
+
+        /* Скрываем стандартный чекбокс */
+        .option input[type="radio"] {
+            margin: 0;
+        }
+
+        /* Стиль для выбранного состояния */
+        .option input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        /* Дополнительный стиль для всей кнопки при выборе */
+        .option input[type="radio"]:checked ~ span {
+            font-weight: bold;
         }
 
         .gap-exercise {
@@ -747,18 +763,18 @@
                     <div class="exercise-content">
                         <div class="question">What is this song about?</div>
                         <div class="options">
-                            <div class="option">
+                            <label class="option">
                                 <input type="radio" name="task1" value="a">
-                                <label>About losing someone you love but remembering them forever</label>
-                            </div>
-                            <div class="option">
+                                <span>About losing someone you love but remembering them forever</span>
+                            </label>
+                            <label class="option">
                                 <input type="radio" name="task1" value="b">
-                                <label>About a new beginning</label>
-                            </div>
-                            <div class="option">
+                                <span>About a new beginning</span>
+                            </label>
+                            <label class="option">
                                 <input type="radio" name="task1" value="c">
-                                <label>About dancing and fun</label>
-                            </div>
+                                <span>About dancing and fun</span>
+                            </label>
                         </div>
                         <button class="check-button" onclick="checkTask1()">Проверить</button>
                         <div id="result1" class="result"></div>
@@ -809,9 +825,6 @@
                             </div>
                         </div>
                         <div class="hint">💡 Подсказка: Все слова из словаря выше!</div>
-                        <div class="lyrics-example">
-                            🎵 Пример из песни: "Near, far, wherever you are, I believe that the heart does go on"
-                        </div>
                         <button class="check-button" onclick="checkTask2()">Проверить</button>
                         <div id="result2" class="result"></div>
                     </div>
@@ -826,14 +839,14 @@
                             <div class="future-exercise">
                                 <div class="sentence-complete">My heart ___ go on.</div>
                                 <div class="options">
-                                    <div class="option">
+                                    <label class="option">
                                         <input type="radio" name="future" value="will">
-                                        <label>will</label>
-                                    </div>
-                                    <div class="option">
+                                        <span>will</span>
+                                    </label>
+                                    <label class="option">
                                         <input type="radio" name="future" value="shall">
-                                        <label>shall</label>
-                                    </div>
+                                        <span>shall</span>
+                                    </label>
                                 </div>
                             </div>
                         </div>

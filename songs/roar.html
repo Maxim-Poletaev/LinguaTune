@@ -125,10 +125,26 @@
             border-radius: 6px;
             cursor: pointer;
             transition: background-color 0.3s;
+            border: 1px solid #ddd;
         }
 
         .option:hover {
             background: #e9ecef;
+        }
+
+        /* Скрываем стандартный чекбокс */
+        .option input[type="radio"] {
+            margin: 0;
+        }
+
+        /* Стиль для выбранного состояния */
+        .option input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        /* Дополнительный стиль для всей кнопки при выборе */
+        .option input[type="radio"]:checked ~ span {
+            font-weight: bold;
         }
 
         .gap-exercise {
@@ -659,18 +675,18 @@
                     <div class="exercise-content">
                         <div class="question">What is this song about?</div>
                         <div class="options">
-                            <div class="option">
+                            <label class="option">
                                 <input type="radio" name="task1" value="a">
-                                <label>About becoming strong and confident</label>
-                            </div>
-                            <div class="option">
+                                <span>About becoming strong and confident</span>
+                            </label>
+                            <label class="option">
                                 <input type="radio" name="task1" value="b">
-                                <label>About animals</label>
-                            </div>
-                            <div class="option">
+                                <span>About animals</span>
+                            </label>
+                            <label class="option">
                                 <input type="radio" name="task1" value="c">
-                                <label>About being tired</label>
-                            </div>
+                                <span>About being tired</span>
+                            </label>
                         </div>
                         <button class="check-button" onclick="checkTask1()">Проверить</button>
                         <div id="result1" class="result"></div>
@@ -717,10 +733,6 @@
                             </div>
                         </div>
                         <div class="hint">💡 Подсказка: Слова из словаря и контекста песни!</div>
-                        <div class="lyrics-example">
-                            🎵 Пример из песни: "I used to bite my tongue and hold my breath" и "Now I'm floating like a
-                            butterfly, stinging like a bee"
-                        </div>
                         <button class="check-button" onclick="checkTask2()">Проверить</button>
                         <div id="result2" class="result"></div>
                     </div>
@@ -751,14 +763,14 @@
                             <div class="auxiliary-exercise">
                                 <div class="sentence-complete">___ you hear my voice?</div>
                                 <div class="options">
-                                    <div class="option">
+                                    <label class="option">
                                         <input type="radio" name="auxiliary" value="do">
-                                        <label>Do</label>
-                                    </div>
-                                    <div class="option">
+                                        <span>Do</span>
+                                    </label>
+                                    <label class="option">
                                         <input type="radio" name="auxiliary" value="did">
-                                        <label>Did</label>
-                                    </div>
+                                        <span>Did</span>
+                                    </label>
                                 </div>
                                 <div class="grammar-hint">
                                     💡 Вспомогательные глаголы: Do - для Present Simple, Did - для Past Simple
